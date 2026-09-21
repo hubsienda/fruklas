@@ -6,13 +6,13 @@ import { coreAreas } from '../data/home';
     <div class="grid gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-16">
       <div>
         <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-light-green">Qué hacemos</p>
-        <h2 id="actividad-title" class="mt-3 text-4xl font-black tracking-[-0.03em] sm:text-5xl">Del producto al mercado.</h2>
+        <h2 id="actividad-title" class="mt-3 text-3xl font-black leading-[1.18] tracking-[-0.025em] sm:text-4xl">Del producto al mercado.</h2>
       </div>
       <div class="grid gap-8 sm:grid-cols-3">
         {coreAreas.map((area, index) => (
           <article class="border-t-4 border-fruklas-green pt-5">
             <p class="text-xs font-black text-fruklas-orange">0{index + 1}</p>
-            <h3 class="mt-4 text-xl font-black">{area.title}</h3>
+            <h3 class="mt-4 text-xl font-black leading-snug">{area.title}</h3>
             <p class="mt-3 text-sm leading-6 text-black/60">{area.text}</p>
           </article>
         ))}
