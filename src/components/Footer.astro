@@ -5,11 +5,12 @@ import { company, legalPlaceholders, navigation } from '../data/site';
   <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
     <div>
       <img src="/logos/logo.png" alt="FRUKLAS" width="180" height="60" class="h-12 w-auto" loading="lazy" />
-      <p class="mt-5 max-w-sm text-sm leading-6 text-white/70">{company.addressLines.join(' · ')}</p>
+      <p class="mt-5 text-sm font-bold text-white">Fruklas S.L.</p>
+      <p class="mt-2 max-w-md text-sm leading-6 text-white/70">Mercalicante, Pto. 134/136/138 · Ctra. Madrid, Km. 4 · 03114 Alicante – España</p>
       <p class="mt-3 text-sm text-white/70">
-        <a href={company.phoneHref} class="hover:text-white">{company.phone}</a>
+        <a href="tel:+34966300790" class="hover:text-white">+34 966 300 790</a>
         <span aria-hidden="true"> · </span>
-        <a href={company.mobileHref} class="hover:text-white">{company.mobile}</a>
+        <a href="tel:+34617710647" class="hover:text-white">+34 617 710 647</a>
       </p>
     </div>
     <nav aria-label="Navegación del pie">
