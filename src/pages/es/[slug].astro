@@ -2,17 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { company } from '../../data/site';
 
-const pages = [
-  { slug: 'productos', title: 'Productos', intro: 'Catálogo preparado para incorporar variedades, origen, temporada, disponibilidad, formatos e imágenes suministradas por FRUKLAS.' },
-  { slug: 'compradores', title: 'Para compradores', intro: 'Área comercial para compradores profesionales. El contenido definitivo se incorporará en la siguiente fase.' },
-  { slug: 'productores', title: 'Para productores', intro: 'Área para productores interesados en establecer contacto comercial con FRUKLAS.' },
-  { slug: 'servicios', title: 'Servicios', intro: 'Sección preparada para presentar los servicios de FRUKLAS cuando se facilite el contenido definitivo.' },
-  { slug: 'calidad', title: 'Calidad', intro: 'Sección preparada para publicar información de calidad y certificaciones únicamente cuando sean facilitadas.' },
-  { slug: 'empresa', title: 'Empresa', intro: 'Sección corporativa preparada para la información definitiva sobre FRUKLAS S.L.' },
-  { slug: 'contacto', title: 'Contacto', intro: 'Datos de contacto de FRUKLAS S.L. en Mercalicante, Alicante.' },
-];
-
 export function getStaticPaths() {
+  const pages = [
+    { slug: 'productos', title: 'Productos', intro: 'Catálogo preparado para incorporar variedades, origen, temporada, disponibilidad, formatos e imágenes suministradas por FRUKLAS.' },
+    { slug: 'compradores', title: 'Para compradores', intro: 'Área comercial para compradores profesionales. El contenido definitivo se incorporará en la siguiente fase.' },
+    { slug: 'productores', title: 'Para productores', intro: 'Área para productores interesados en establecer contacto comercial con FRUKLAS.' },
+    { slug: 'servicios', title: 'Servicios', intro: 'Sección preparada para presentar los servicios de FRUKLAS cuando se facilite el contenido definitivo.' },
+    { slug: 'calidad', title: 'Calidad', intro: 'Sección preparada para publicar información de calidad y certificaciones únicamente cuando sean facilitadas.' },
+    { slug: 'empresa', title: 'Empresa', intro: 'Sección corporativa preparada para la información definitiva sobre FRUKLAS S.L.' },
+    { slug: 'contacto', title: 'Contacto', intro: 'Datos de contacto de FRUKLAS S.L. en Mercalicante, Alicante.' },
+  ];
+
   return pages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
 
