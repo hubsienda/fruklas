@@ -1,0 +1,25 @@
+name: Verify FRUKLAS site
+
+on:
+  push:
+    branches: [fruklas-phase-1]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Type and Astro check
+        run: npm run check
+      - name: Production build
+        run: npm run build
