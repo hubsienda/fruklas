@@ -8,8 +8,8 @@ const headerClass = overlay
 ---
 <header class={headerClass}>
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 lg:px-8">
-    <a href="/es/" class="shrink-0" aria-label="FRUKLAS, inicio">
-      <img src="/logos/logo.png" alt="FRUKLAS" width="180" height="60" class:list={["h-11 w-auto", overlay && "brightness-0 invert"]} />
+    <a href="/es/" class:list={["shrink-0", overlay && "bg-white px-2 py-1"]} aria-label="FRUKLAS, inicio">
+      <img src="/logos/logo.png" alt="FRUKLAS" width="180" height="60" class="h-11 w-auto" />
     </a>
     <nav class="hidden items-center gap-5 xl:flex" aria-label="Navegación principal">
       {navigation.map((item) => <a href={item.href} class="text-sm font-semibold transition-opacity hover:opacity-70">{item.label}</a>)}
@@ -31,7 +31,7 @@ const headerClass = overlay
       <summary class="cursor-pointer list-none border border-current/30 px-3 py-2 text-sm font-bold">Menú</summary>
       <div class="absolute right-0 mt-3 w-[min(88vw,22rem)] border border-black/10 bg-white p-4 text-fruklas-ink shadow-2xl">
         <nav class="grid gap-1" aria-label="Navegación móvil">
-          {navigation.map((item) => <a href={item.href} class="border-b border-black/8 px-2 py-3 font-semibold">{item.label}</a>)}
+          {navigation.map((item) => <a href={item.href} class="border-b border-black/10 px-2 py-3 font-semibold">{item.label}</a>)}
         </nav>
         <div class="mt-4 flex flex-wrap gap-2" aria-label="Idiomas">
           {locales.map((locale) => locale.available ? (
