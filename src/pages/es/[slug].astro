@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { company } from '../../data/site';
+
+export function getStaticPaths() {
+  const pages = [
+    { slug: 'productos', title: 'Productos', intro: 'Catálogo preparado para incorporar variedades, origen, temporada, disponibilidad, formatos e imágenes suministradas por FRUKLAS.' },
+    { slug: 'compradores', title: 'Para compradores', intro: 'Área comercial para compradores profesionales. El contenido definitivo se incorporará en la siguiente fase.' },
+    { slug: 'productores', title: 'Para productores', intro: 'Área para productores interesados en establecer contacto comercial con FRUKLAS.' },
+    { slug: 'servicios', title: 'Servicios', intro: 'Sección preparada para presentar los servicios de FRUKLAS cuando se facilite el contenido definitivo.' },
+    { slug: 'calidad', title: 'Calidad', intro: 'Sección preparada para publicar información de calidad y certificaciones únicamente cuando sean facilitadas.' },
+    { slug: 'empresa', title: 'Empresa', intro: 'Sección corporativa preparada para la información definitiva sobre FRUKLAS S.L.' },
+    { slug: 'contacto', title: 'Contacto', intro: 'Datos de contacto de FRUKLAS S.L. en Mercalicante, Alicante.' },
+  ];
+
+  return pages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const isContact = page.slug === 'contacto';
+---
+<BaseLayout title={`${page.title} | FRUKLAS S.L.`} description={`${page.title} — FRUKLAS S.L., Alicante.`}>
+  <section class="bg-fruklas-cream py-20 sm:py-28">
+    <div class="mx-auto max-w-5xl px-5 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">FRUKLAS S.L.</p>
+      <h1 class="mt-4 text-5xl font-black tracking-[-0.04em] sm:text-6xl">{page.title}</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-black/60">{page.intro}</p>
+      {isContact && (
+        <address class="mt-10 max-w-xl border-t-4 border-fruklas-green pt-6 not-italic leading-7">
+          <p class="text-xl font-black">{company.name}</p>
+          {company.addressLines.map((line) => <p>{line}</p>)}
+          <p class="mt-4"><strong>C.I.F.</strong> {company.cif}</p>
+          <p><strong>Tel/Fax:</strong> <a href={company.phoneHref} class="font-semibold text-fruklas-green underline">{company.phone}</a></p>
+          <p><strong>Móvil:</strong> <a href={company.mobileHref} class="font-semibold text-fruklas-green underline">{company.mobile}</a></p>
+          <a href={company.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block font-bold text-fruklas-orange underline">Abrir en Google Maps</a>
+        </address>
+      )}
+    </div>
+  </section>
+</BaseLayout>

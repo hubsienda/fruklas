@@ -1,0 +1,18 @@
+---
+import { company } from '../data/site';
+---
+<section class="relative isolate min-h-[76svh] overflow-hidden bg-fruklas-ink text-white">
+  <img src="/webpics/homehero.jpeg" alt="Producto fresco de FRUKLAS" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" width="1920" height="1080" fetchpriority="high" />
+  <div class="absolute inset-0 -z-10 bg-black/45"></div>
+  <div class="mx-auto flex min-h-[76svh] max-w-7xl items-end px-5 pb-16 pt-32 md:items-center md:pb-20 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-white/85">{company.corporateExpression}</p>
+      <h1 class="max-w-3xl text-5xl font-black leading-[0.95] tracking-[-0.045em] sm:text-6xl lg:text-8xl">{company.motto}</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-7 text-white/85 sm:text-xl">Frutas y hortalizas frescas desde Alicante para mercados profesionales.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/es/productos/" class="bg-fruklas-orange px-5 py-3.5 font-bold text-white hover:opacity-90">Nuestros productos</a>
+        <a href="/es/contacto/" class="border border-white/70 bg-white/10 px-5 py-3.5 font-bold text-white backdrop-blur-sm hover:bg-white/20">Contactar</a>
+      </div>
+    </div>
+  </div>
+</section>
