@@ -8,12 +8,11 @@ export const locales = [
 
 export const navigation = [
   { label: 'Productos', href: '/es/productos/' },
-  { label: 'Para compradores', href: '/es/compradores/' },
-  { label: 'Para productores', href: '/es/productores/' },
+  { label: 'Compradores', href: '/es/compradores/' },
+  { label: 'Productores', href: '/es/productores/' },
   { label: 'Servicios', href: '/es/servicios/' },
   { label: 'Calidad', href: '/es/calidad/' },
   { label: 'Empresa', href: '/es/empresa/' },
-  { label: 'Contacto', href: '/es/contacto/' },
 ] as const;
 
 export const legalPlaceholders = [
