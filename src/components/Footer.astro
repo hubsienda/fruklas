@@ -1,0 +1,33 @@
+---
+import { company, legalPlaceholders, navigation } from '../data/site';
+---
+<footer class="bg-fruklas-ink text-white">
+  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
+    <div>
+      <div class="inline-flex bg-white p-3">
+        <img src="/logos/logo.png" alt="FRUKLAS" width="180" height="60" class="h-12 w-auto" loading="lazy" />
+      </div>
+      <p class="mt-5 max-w-sm text-sm leading-6 text-white/70">{company.addressLines.join(' · ')}</p>
+      <p class="mt-3 text-sm text-white/70">
+        <a href={company.phoneHref} class="hover:text-white">{company.phone}</a>
+        <span aria-hidden="true"> · </span>
+        <a href={company.mobileHref} class="hover:text-white">{company.mobile}</a>
+      </p>
+    </div>
+    <nav aria-label="Navegación del pie">
+      <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">FRUKLAS</h2>
+      <ul class="mt-4 grid gap-2 text-sm">
+        {navigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange">{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">Legal</h2>
+      <ul class="mt-4 grid gap-2 text-sm text-white/55" aria-label="Enlaces legales previstos">
+        {legalPlaceholders.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-white/55">
+    © {new Date().getFullYear()} {company.name}. Todos los derechos reservados.
+  </div>
+</footer>
