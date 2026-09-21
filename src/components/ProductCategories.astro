@@ -1,22 +1,22 @@
 ---
 import { productCategories } from '../data/home';
 const cardClasses = [
-  'bg-[#6B2D5C] text-white hover:bg-[#5E274F]',
-  'bg-[#6F7F45] text-white hover:bg-[#63723E]',
-  'bg-fruklas-orange text-white hover:bg-[#E85E1C]',
-  'bg-fruklas-green text-white hover:bg-[#006A2C]',
+  'bg-fruklas-grape text-white hover:bg-fruklas-grape-deep',
+  'bg-fruklas-artichoke text-white hover:bg-fruklas-artichoke-deep',
+  'bg-fruklas-orange text-white hover:brightness-95',
+  'bg-fruklas-green text-white hover:brightness-95',
 ];
 ---
-<section class="bg-fruklas-cream py-20 sm:py-24" aria-labelledby="productos-title">
+<section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24" aria-labelledby="productos-title">
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
     <div class="max-w-2xl">
-      <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">Producto fresco</p>
-      <h2 id="productos-title" class="mt-3 text-3xl font-black leading-[1.15] tracking-[-0.025em] sm:text-4xl">Productos</h2>
+      <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Producto fresco</p>
+      <h2 id="productos-title" class="mt-3 text-3xl font-bold leading-[1.2] tracking-[-0.025em] sm:text-4xl">Productos</h2>
     </div>
     <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {productCategories.map((category, index) => (
-        <a href="/es/productos/" class:list={["group flex min-h-44 items-end justify-between gap-6 p-7 transition-colors sm:min-h-52", cardClasses[index]]}>
-          <h3 class="text-2xl font-black leading-tight tracking-[-0.025em] sm:text-3xl">{category.name}</h3>
+        <a href="/es/productos/" class:list={["group flex min-h-44 items-end justify-between gap-6 p-7 transition sm:min-h-52", cardClasses[index]]}>
+          <h3 class="text-2xl font-bold leading-tight tracking-[-0.02em] sm:text-3xl">{category.name}</h3>
           <span class="mb-1 text-2xl font-bold transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
         </a>
       ))}
