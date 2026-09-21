@@ -1,6 +1,6 @@
 ---
 import { productCategories } from '../data/home';
-const iconColours = ['text-fruklas-green', 'text-fruklas-light-green', 'text-fruklas-orange', 'text-fruklas-green'];
+const iconColours = ['text-[#7B2D4F]', 'text-fruklas-light-green', 'text-fruklas-orange', 'text-fruklas-green'];
 ---
 <section class="bg-fruklas-cream py-20 sm:py-24" aria-labelledby="productos-title">
   <div class="mx-auto max-w-7xl px-5 lg:px-8">
@@ -25,10 +25,11 @@ const iconColours = ['text-fruklas-green', 'text-fruklas-light-green', 'text-fru
             )}
             {category.slug === 'alcachofa' && (
               <svg viewBox="0 0 64 64" class="h-16 w-16 fill-none stroke-current" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M32 8c-5 5-8 10-8 16 0 8 4 14 8 18 4-4 8-10 8-18 0-6-3-11-8-16Z" />
-                <path d="M24 18c-7 3-11 8-11 14 0 8 8 15 19 17M40 18c7 3 11 8 11 14 0 8-8 15-19 17" />
-                <path d="M19 27c-5 4-6 9-4 14 3 7 10 11 17 12M45 27c5 4 6 9 4 14-3 7-10 11-17 12" />
-                <path d="M32 42v17M25 58h14" />
+                <path d="M32 6c-4 5-6 10-6 15-4-3-8-5-12-5 0 10 3 20 9 27 3 4 6 7 9 9 3-2 6-5 9-9 6-7 9-17 9-27-4 0-8 2-12 5 0-5-2-10-6-15Z" />
+                <path d="M26 20c0 7 2 13 6 18 4-5 6-11 6-18" />
+                <path d="M17 23c2 7 7 13 15 18 8-5 13-11 15-18" />
+                <path d="M20 34c3 6 7 10 12 13 5-3 9-7 12-13" />
+                <path d="M32 47v12M27 59h10" />
               </svg>
             )}
             {category.slug === 'frutas' && (
