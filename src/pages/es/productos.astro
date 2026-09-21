@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { photoSourceNotes } from '../../data/site';
+
+const galleries = [
+  { label: 'Uvas', href: photoSourceNotes.grapes, accent: 'border-[#6B2D5C]' },
+  { label: 'Alcachofas', href: photoSourceNotes.artichokes, accent: 'border-[#6F7F45]' },
+  { label: 'Frutas y Hortalizas', href: photoSourceNotes.produce, accent: 'border-fruklas-orange' },
+];
+---
+<BaseLayout
+  title="Productos | FRUKLAS S.L."
+  description="Frutas y hortalizas frescas de FRUKLAS para el mercado profesional."
+>
+  <section class="bg-fruklas-cream py-20 sm:py-24">
+    <div class="mx-auto max-w-5xl px-5 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">FRUKLAS S.L.</p>
+      <h1 class="mt-4 text-4xl font-black leading-[1.15] tracking-[-0.03em] sm:text-5xl">Productos</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-black/60">Uvas, alcachofas, frutas y hortalizas frescas desde Alicante para el mercado profesional.</p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20" aria-labelledby="galerias-title">
+    <div class="mx-auto max-w-5xl px-5 lg:px-8">
+      <h2 id="galerias-title" class="text-3xl font-black leading-[1.15] tracking-[-0.025em] sm:text-4xl">Galerías de producto</h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {galleries.map((gallery) => (
+          <a
+            href={gallery.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class:list={["group flex min-h-40 flex-col justify-between border-l-4 bg-fruklas-cream p-6 transition-colors hover:bg-white", gallery.accent]}
+            aria-label={`${gallery.label}: abrir galería de fotos en una nueva pestaña`}
+          >
+            <h3 class="text-2xl font-black leading-tight">{gallery.label}</h3>
+            <span class="mt-8 font-bold text-fruklas-green">Abrir galería de fotos <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
