@@ -20,10 +20,10 @@ const { page } = Astro.props;
 const isContact = page.slug === 'contacto';
 ---
 <BaseLayout title={`${page.title} | FRUKLAS S.L.`} description={`${page.title} — FRUKLAS S.L., Alicante.`}>
-  <section class="bg-fruklas-cream py-20 sm:py-28">
+  <section class="bg-fruklas-cream py-20 sm:py-24">
     <div class="mx-auto max-w-5xl px-5 lg:px-8">
       <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">FRUKLAS S.L.</p>
-      <h1 class="mt-4 text-5xl font-black tracking-[-0.04em] sm:text-6xl">{page.title}</h1>
+      <h1 class="mt-4 text-4xl font-black leading-[1.15] tracking-[-0.03em] sm:text-5xl">{page.title}</h1>
       <p class="mt-6 max-w-2xl text-lg leading-8 text-black/60">{page.intro}</p>
       {isContact && (
         <address class="mt-10 max-w-xl border-t-4 border-fruklas-green pt-6 not-italic leading-7">
