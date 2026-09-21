@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ProductCategories from '../../components/ProductCategories.astro';
+import BusinessFlow from '../../components/BusinessFlow.astro';
+import AudienceCTA from '../../components/AudienceCTA.astro';
+import QualityPreview from '../../components/QualityPreview.astro';
+import Brands from '../../components/Brands.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+---
+<BaseLayout
+  title="FRUKLAS S.L. | De la Tierra y el Sol"
+  description="FRUKLAS S.L. trabaja con frutas y hortalizas frescas desde Mercalicante, Alicante, para mercados profesionales."
+  overlayHeader={true}
+>
+  <Hero />
+
+  <section class="py-20 sm:py-24" aria-labelledby="fruklas-intro">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.8fr_1.4fr] lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">FRUKLAS · Alicante</p>
+      <div>
+        <h2 id="fruklas-intro" class="max-w-3xl text-4xl font-black tracking-[-0.03em] sm:text-5xl">Producto fresco. Relación comercial directa.</h2>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-black/60">FRUKLAS trabaja con frutas y hortalizas frescas desde Alicante y sirve al mercado profesional. Esta presentación inicial se ampliará con la información comercial definitiva facilitada por la empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <ProductCategories />
+  <BusinessFlow />
+  <AudienceCTA />
+  <QualityPreview />
+  <Brands />
+  <ContactCTA />
+</BaseLayout>
