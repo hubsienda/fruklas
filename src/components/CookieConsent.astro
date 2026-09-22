@@ -35,13 +35,15 @@
 </div>
 
 <script>
+  type CookieConsentValue = 'accepted' | 'denied';
+
   const STORAGE_KEY = 'fruklas_cookie_consent';
   const banner = document.querySelector('[data-cookie-consent]');
   const acceptButton = document.querySelector('[data-cookie-accept]');
   const denyButton = document.querySelector('[data-cookie-deny]');
   const preferenceButtons = document.querySelectorAll('[data-cookie-preferences]');
 
-  const getStoredConsent = () => {
+  const getStoredConsent = (): CookieConsentValue | null => {
     try {
       const value = window.localStorage.getItem(STORAGE_KEY);
       return value === 'accepted' || value === 'denied' ? value : null;
@@ -63,11 +65,11 @@
     banner.setAttribute('aria-hidden', 'true');
   };
 
-  const publishConsent = (consent) => {
+  const publishConsent = (consent: CookieConsentValue | null) => {
     window.dispatchEvent(new CustomEvent('fruklas:cookie-consent-changed', { detail: { consent } }));
   };
 
-  const setConsent = (consent) => {
+  const setConsent = (consent: CookieConsentValue) => {
     try {
       window.localStorage.setItem(STORAGE_KEY, consent);
     } catch {
