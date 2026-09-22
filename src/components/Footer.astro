@@ -1,5 +1,5 @@
 ---
-import { company, legalPlaceholders, navigation } from '../data/site';
+import { company, legalLinks, navigation } from '../data/site';
 ---
 <footer class="border-t border-white/10 bg-fruklas-footer text-white">
   <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
@@ -8,23 +8,23 @@ import { company, legalPlaceholders, navigation } from '../data/site';
       <p class="mt-5 text-sm font-bold text-white">Fruklas S.L.</p>
       <p class="mt-2 max-w-md text-sm leading-6 text-white/70">Mercalicante, Pto. 134/136/138 · Ctra. Madrid, Km. 4 · 03114 Alicante – España</p>
       <p class="mt-3 text-sm text-white/70">
-        <a href="tel:+34966300790" class="hover:text-white">+34 966 300 790</a>
+        <a href="tel:+34966300790" class="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">+34 966 300 790</a>
         <span aria-hidden="true"> · </span>
-        <a href="tel:+34617710647" class="hover:text-white">+34 617 710 647</a>
+        <a href="tel:+34617710647" class="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">+34 617 710 647</a>
       </p>
     </div>
     <nav aria-label="Navegación del pie">
       <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">FRUKLAS</h2>
       <ul class="mt-4 grid gap-2 text-sm">
-        {navigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange">{item.label}</a></li>)}
+        {navigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
       </ul>
     </nav>
-    <div>
+    <nav aria-label="Legal">
       <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">Legal</h2>
-      <ul class="mt-4 grid gap-2 text-sm text-white/55" aria-label="Enlaces legales previstos">
-        {legalPlaceholders.map((item) => <li>{item}</li>)}
+      <ul class="mt-4 grid gap-2 text-sm">
+        {legalLinks.map((item) => <li><a href={item.href} class="text-white/80 hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
       </ul>
-    </div>
+    </nav>
   </div>
   <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-white/55">
     © {new Date().getFullYear()} {company.name}. Todos los derechos reservados.

@@ -15,12 +15,12 @@ export const navigation = [
   { label: 'Empresa', href: '/es/empresa/' },
 ] as const;
 
-export const legalPlaceholders = [
-  'Privacidad',
-  'Aviso legal',
-  'Canal ético',
-  'Igualdad',
-  'Accesibilidad',
+export const legalLinks = [
+  { label: 'AVISO LEGAL', href: '/es/legal/aviso-legal/' },
+  { label: 'PRIVACIDAD', href: '/es/legal/privacidad/' },
+  { label: 'CANAL ETICO', href: '/es/legal/canal-etico/' },
+  { label: 'IGUALDAD', href: '/es/legal/igualdad/' },
+  { label: 'ACCESSIBILIDAD', href: '/es/legal/accessibilidad/' },
 ] as const;
 
 export const company = {

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { legalResources } from '../../../data/legal';
+---
+<BaseLayout
+  title="Igualdad | FRUKLAS S.L."
+  description="Documentación de FRUKLAS relativa a igualdad."
+>
+  <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-4xl px-5 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">FRUKLAS · Legal</p>
+      <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">IGUALDAD</h1>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 sm:py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-5 lg:px-8">
+      <p class="text-lg leading-8 text-fruklas-black">Consulta la documentación de FRUKLAS relativa a igualdad.</p>
+      <a href={legalResources.officialSources.igualdad} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 text-center font-bold uppercase tracking-[0.04em] text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-green">CONSULTAR DOCUMENTO DE IGUALDAD <span class="ml-2" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+    </div>
+  </section>
+</BaseLayout>

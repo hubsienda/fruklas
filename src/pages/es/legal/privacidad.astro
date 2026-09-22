@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { legalResources } from '../../../data/legal';
+---
+<BaseLayout
+  title="Privacidad | FRUKLAS S.L."
+  description="Política de privacidad de FRUKLAS S.L."
+>
+  <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-4xl px-5 lg:px-8">
+      <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">FRUKLAS · Legal</p>
+      <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">PRIVACIDAD</h1>
+    </div>
+  </section>
+
+  <section class="bg-white py-14 sm:py-16 lg:py-20">
+    <div class="mx-auto max-w-4xl px-5 lg:px-8">
+      <div class="border-l-4 border-fruklas-orange pl-5 sm:pl-6">
+        <h2 class="text-2xl font-bold text-fruklas-ink">Fuente oficial</h2>
+        <p class="mt-4 text-base leading-7 text-fruklas-black">El contenido íntegro de la Política de Privacidad debe trasladarse desde la fuente oficial de FRUKLAS. La fuente no pudo recuperarse de forma fiable durante esta implementación, por lo que no se ha sustituido por texto generado, plantillas jurídicas ni contenido procedente de otra página.</p>
+        <a href={legalResources.officialSources.privacidad} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex min-h-12 items-center break-all font-bold text-fruklas-green underline decoration-fruklas-orange decoration-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-green">Consultar fuente oficial <span class="ml-2 shrink-0" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
