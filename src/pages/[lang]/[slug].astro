@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InternationalPage from '../../components/InternationalPage.astro';
+import {
+  foreignLanguages,
+  foreignRoutes,
+  internationalConfigs,
+  type ForeignLang,
+  type ForeignPageKey,
+} from '../../data/i18n';
+
+export function getStaticPaths() {
+  return foreignLanguages.flatMap((lang) => {
+    const routes = foreignRoutes[lang];
+    return (['products', 'buyers', 'quality', 'logistics', 'company'] as ForeignPageKey[]).map((pageKey) => {
+      const parts = routes[pageKey].split('/').filter(Boolean);
+      return {
+        params: { lang, slug: parts[1] },
+        props: { lang, pageKey },
+      };
+    });
+  });
+}
+
+interface Props { lang: ForeignLang; pageKey: ForeignPageKey }
+const { lang, pageKey } = Astro.props;
+const config = internationalConfigs[lang];
+const pageMeta = config[pageKey];
+const canonical = `https://fruklas.com${foreignRoutes[lang][pageKey]}`;
+---
+<BaseLayout
+  title={pageMeta.title}
+  description={pageMeta.description}
+  lang={lang}
+  canonical={canonical}
+>
+  <InternationalPage config={config} pageKey={pageKey} />
+</BaseLayout>
