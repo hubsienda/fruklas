@@ -49,6 +49,7 @@ import { company, legalLinks, navigation } from '../data/site';
     <nav aria-label="Navegación del pie">
       <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">FRUKLAS</h2>
       <ul class="mt-4 grid gap-2 text-sm">
+        <li><a href="https://fruklas.com" class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">HOME</a></li>
         {navigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
       </ul>
     </nav>
