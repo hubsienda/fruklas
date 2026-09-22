@@ -1,9 +1,9 @@
 export const locales = [
   { code: 'es', label: 'ES', name: 'Español', available: true },
-  { code: 'en', label: 'EN', name: 'English', available: false },
-  { code: 'fr', label: 'FR', name: 'Français', available: false },
-  { code: 'it', label: 'IT', name: 'Italiano', available: false },
-  { code: 'de', label: 'DE', name: 'Deutsch', available: false },
+  { code: 'en', label: 'EN', name: 'English', available: true },
+  { code: 'fr', label: 'FR', name: 'Français', available: true },
+  { code: 'it', label: 'IT', name: 'Italiano', available: true },
+  { code: 'de', label: 'DE', name: 'Deutsch', available: true },
 ] as const;
 
 export const navigation = [
