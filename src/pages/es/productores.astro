@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const producerDetails = [
+  'Producto',
+  'Variedad',
+  'Zona de producción',
+  'Superficie o volumen estimado',
+  'Periodo de campaña',
+  'Disponibilidad prevista',
+  'Certificaciones, cuando existan',
+  'Presentación o formato disponible',
+  'Datos de contacto',
+];
+---
+<BaseLayout
+  title="Productores | FRUKLAS S.L."
+  description="Información para productores agrícolas interesados en presentar su producción y trabajar comercialmente con FRUKLAS."
+>
+  <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">FRUKLAS · Productores</p>
+        <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">Productores</h1>
+        <p class="mt-6 max-w-2xl text-xl font-semibold leading-8 text-fruklas-ink">Producción, calidad y mercado deben trabajar en la misma dirección.</p>
+        <p class="mt-5 max-w-2xl text-lg leading-8 text-fruklas-black">FRUKLAS colabora con productores agrícolas interesados en presentar su oferta y desarrollar una relación comercial orientada al mercado profesional.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24" aria-labelledby="tambien-productores-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16 lg:px-8">
+      <div>
+        <div class="h-1 w-16 bg-fruklas-orange" aria-hidden="true"></div>
+        <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Experiencia directa</p>
+        <h2 id="tambien-productores-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">También somos productores</h2>
+      </div>
+      <p class="max-w-2xl text-lg leading-8 text-fruklas-black">FRUKLAS conoce directamente el trabajo y las dificultades de la producción agrícola porque también cultiva producto propio. Esa experiencia permite hablar con los productores desde una perspectiva práctica, además de comercial.</p>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-soft-green py-16 sm:py-20 lg:py-24" aria-labelledby="produccion-mercado-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:px-8">
+      <p class="max-w-2xl text-lg leading-8 text-fruklas-black">El objetivo es coordinar las características de la producción con las necesidades comerciales del mercado: producto, campaña, calidad, presentación, disponibilidad y destino comercial.</p>
+      <div class="lg:text-right">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-light-green">Coordinación comercial</p>
+        <h2 id="produccion-mercado-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Producción y mercado</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24" aria-labelledby="trabajar-fruklas-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16 lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Productores asociados</p>
+        <h2 id="trabajar-fruklas-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Trabajar con FRUKLAS</h2>
+      </div>
+      <div class="max-w-2xl space-y-5 text-lg leading-8 text-fruklas-black">
+        <p>FRUKLAS trabaja con agricultores asociados dentro de su cadena de producción y comercialización, coordinando producto y requisitos de calidad para su posterior salida al mercado.</p>
+        <p>Cada propuesta debe evaluarse según producto, campaña, características de la producción y necesidades comerciales existentes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="necesitamos-conocer-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16 lg:px-8">
+      <div>
+        <div class="h-1 w-16 bg-fruklas-green" aria-hidden="true"></div>
+        <h2 id="necesitamos-conocer-title" class="mt-6 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Qué necesitamos conocer</h2>
+      </div>
+      <ul class="grid gap-x-8 gap-y-0 border-t border-black/15 text-lg text-fruklas-black sm:grid-cols-2">
+        {producerDetails.map((detail) => (
+          <li class="border-b border-black/15 py-4">{detail}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-soft-green py-16 sm:py-20 lg:py-24" aria-labelledby="calidad-productores-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16 lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-light-green">Desde el origen</p>
+        <h2 id="calidad-productores-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Calidad</h2>
+      </div>
+      <div class="max-w-2xl">
+        <p class="text-lg leading-8 text-fruklas-black">La calidad debe formar parte de la producción desde el origen. FRUKLAS coordina sus requisitos comerciales y de calidad con los productores con los que trabaja.</p>
+        <a href="/es/calidad/" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 font-bold uppercase tracking-[0.05em] text-white transition-opacity hover:opacity-90">ÁREA CALIDAD</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-ink py-16 text-white sm:py-20 lg:py-24" aria-labelledby="contacto-productores-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Propuestas de producción</p>
+        <h2 id="contacto-productores-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] sm:text-4xl">Presenta tu producto a FRUKLAS</h2>
+      </div>
+      <div class="max-w-2xl">
+        <p class="text-lg leading-8 text-white">Si eres productor y quieres presentar una producción o campaña, contacta con nuestro equipo e indícanos los datos principales del producto.</p>
+        <a href="/es/contacto/" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink transition-opacity hover:opacity-90">CONTACTAR</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
