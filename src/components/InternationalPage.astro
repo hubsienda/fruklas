@@ -1,0 +1,155 @@
+---
+import type { ForeignPageKey, InternationalLocaleConfig } from '../data/i18n';
+import { commercialForms, foreignRoutes, sharedInternationalResources } from '../data/i18n';
+
+interface Props { config: InternationalLocaleConfig; pageKey: ForeignPageKey }
+const { config, pageKey } = Astro.props;
+const routes = foreignRoutes[config.code];
+const formUrl = commercialForms[config.code];
+const ext = config.ui.externalNote;
+const externalSr = ` (${ext})`;
+---
+{pageKey === 'products' && (
+  <>
+    <section class="bg-white py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.products.eyebrow}</p>
+          <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">{config.products.h1}</h1>
+          <p class="mt-6 text-lg leading-8 text-fruklas-black">{config.products.intro}</p>
+          <p class="mt-4 text-lg leading-8 text-fruklas-black">{config.products.vinalopo}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
+        <div>
+          <div class="h-1 w-16 bg-fruklas-grape" aria-hidden="true"></div>
+          <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-grape">{config.products.grapesEyebrow}</p>
+          <h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.products.grapesTitle}</h2>
+        </div>
+        <div class="max-w-2xl">
+          <p class="text-lg leading-8 text-fruklas-black">{config.products.grapesBody}</p>
+          <a href={sharedInternationalResources.galleries.grapes} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-grape px-6 py-3 font-bold uppercase tracking-[0.05em] text-white">{config.products.galleryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-fruklas-soft-green py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8">
+        <div class="max-w-2xl lg:order-1">
+          <p class="text-lg leading-8 text-fruklas-black">{config.products.artichokesBody}</p>
+          <a href={sharedInternationalResources.galleries.artichokes} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-artichoke-deep px-6 py-3 font-bold uppercase tracking-[0.05em] text-white">{config.products.galleryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a>
+        </div>
+        <div class="lg:order-2 lg:text-right">
+          <div class="ml-auto h-1 w-16 bg-fruklas-artichoke" aria-hidden="true"></div>
+          <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-artichoke">{config.products.artichokesEyebrow}</p>
+          <h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.products.artichokesTitle}</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
+        <div>
+          <div class="flex gap-2" aria-hidden="true"><span class="h-1 w-10 bg-fruklas-orange"></span><span class="h-1 w-10 bg-fruklas-green"></span></div>
+          <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.products.produceEyebrow}</p>
+          <h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.products.produceTitle}</h2>
+        </div>
+        <div class="max-w-2xl">
+          <p class="text-lg leading-8 text-fruklas-black">{config.products.produceBody}</p>
+          <a href={sharedInternationalResources.galleries.produce} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.products.galleryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20 lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-light-green">{config.products.docsEyebrow}</p>
+          <h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.products.docsTitle}</h2>
+        </div>
+        <div class="max-w-2xl">
+          <p class="text-lg leading-8 text-fruklas-black">{config.products.docsBody}</p>
+          <a href={sharedInternationalResources.productDocumentation} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 font-bold uppercase tracking-[0.05em] text-white">{config.products.docsCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20 lg:py-24">
+      <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+        <div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.products.ctaEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.products.ctaTitle}</h2></div>
+        <div class="max-w-2xl"><p class="text-lg leading-8 text-white">{config.products.ctaBody}</p><a href={formUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.ui.enquiryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div>
+      </div>
+    </section>
+  </>
+)}
+
+{pageKey === 'buyers' && (
+  <>
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="max-w-4xl"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{config.buyers.eyebrow}</p><h1 class="mt-4 text-4xl font-bold text-fruklas-ink sm:text-5xl">{config.buyers.h1}</h1><p class="mt-6 text-xl font-semibold leading-8 text-fruklas-ink">{config.buyers.lead}</p><p class="mt-5 text-lg leading-8 text-fruklas-black">{config.buyers.audience}</p></div></div></section>
+    {[
+      [config.buyers.fieldEyebrow, config.buyers.fieldTitle, config.buyers.fieldBody, 'bg-fruklas-cream'],
+      [config.buyers.productionEyebrow, config.buyers.productionTitle, config.buyers.productionBody, 'bg-fruklas-soft-green'],
+    ].map(([eyebrow,title,body,theme]) => <section class={`${theme} py-16 sm:py-20 lg:py-24`}><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{eyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{title}</h2></div><p class="max-w-2xl text-lg leading-8 text-fruklas-black">{body}</p></div></section>)}
+    <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24"><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.buyers.availabilityEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.buyers.availabilityTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8 text-fruklas-black">{config.buyers.availabilityBody}</p><a href={sharedInternationalResources.productDocumentation} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 font-bold uppercase tracking-[0.05em] text-white">{config.buyers.docsCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:px-8"><div class="border-t-4 border-fruklas-green pt-6"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{config.buyers.qualityEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink">{config.buyers.qualityTitle}</h2><p class="mt-5 text-lg leading-8 text-fruklas-black">{config.buyers.qualityBody}</p><a href={routes.quality} class="mt-6 inline-flex min-h-12 items-center font-bold text-fruklas-green underline decoration-2">{config.nav.quality}</a></div><div class="border-t-4 border-fruklas-orange pt-6"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.buyers.logisticsEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink">{config.buyers.logisticsTitle}</h2><p class="mt-5 text-lg leading-8 text-fruklas-black">{config.buyers.logisticsBody}</p><a href={routes.logistics} class="mt-6 inline-flex min-h-12 items-center font-bold text-fruklas-green underline decoration-2">{config.nav.logistics}</a></div></div></section>
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20 lg:py-24"><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.buyers.ctaEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.buyers.ctaTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8">{config.buyers.ctaBody}</p><a href={formUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.ui.enquiryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+  </>
+)}
+
+{pageKey === 'quality' && (
+  <>
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="max-w-4xl"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{config.quality.eyebrow}</p><h1 class="mt-4 text-4xl font-bold text-fruklas-ink sm:text-5xl">{config.quality.h1}</h1><p class="mt-6 text-xl font-semibold leading-8 text-fruklas-ink">{config.quality.lead}</p></div></div></section>
+    <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24"><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.quality.fqsEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.quality.fqsTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8 text-fruklas-black">{config.quality.fqsBody}</p><p class="mt-5 border-l-4 border-fruklas-orange pl-5 font-semibold leading-7 text-fruklas-ink">{config.quality.fqsDisclaimer}</p></div></div></section>
+    {[
+      [config.quality.chainEyebrow, config.quality.chainTitle, config.quality.chainBody, 'bg-fruklas-soft-green'],
+      [config.quality.traceabilityEyebrow, config.quality.traceabilityTitle, config.quality.traceabilityBody, 'bg-white'],
+      [config.quality.controlsEyebrow, config.quality.controlsTitle, config.quality.controlsBody, 'bg-fruklas-warm-orange'],
+      [config.quality.documentationEyebrow, config.quality.documentationTitle, config.quality.documentationBody, 'bg-white'],
+      [config.quality.incidentsEyebrow, config.quality.incidentsTitle, config.quality.incidentsBody, 'bg-fruklas-soft-green'],
+      [config.quality.growersEyebrow, config.quality.growersTitle, config.quality.growersBody, 'bg-white'],
+    ].map(([eyebrow,title,body,theme]) => <section class={`${theme} py-14 sm:py-16`}><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{eyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink">{title}</h2></div><p class="max-w-2xl text-lg leading-8 text-fruklas-black">{body}</p></div></section>)}
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20"><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.quality.ctaEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.quality.ctaTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8">{config.quality.ctaBody}</p><a href={formUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.ui.enquiryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+  </>
+)}
+
+{pageKey === 'logistics' && (
+  <>
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="max-w-4xl"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.logistics.eyebrow}</p><h1 class="mt-4 text-4xl font-bold text-fruklas-ink sm:text-5xl">{config.logistics.h1}</h1><p class="mt-6 text-xl font-semibold leading-8 text-fruklas-ink">{config.logistics.lead}</p></div></div></section>
+    {[
+      [config.logistics.mercalicanteEyebrow, config.logistics.mercalicanteTitle, config.logistics.mercalicanteBody, 'bg-fruklas-cream'],
+      [config.logistics.storageEyebrow, config.logistics.storageTitle, config.logistics.storageBody, 'bg-fruklas-soft-green'],
+      [config.logistics.pickingEyebrow, config.logistics.pickingTitle, config.logistics.pickingBody, 'bg-white'],
+      [config.logistics.dispatchEyebrow, config.logistics.dispatchTitle, config.logistics.dispatchBody, 'bg-fruklas-warm-orange'],
+      [config.logistics.documentationEyebrow, config.logistics.documentationTitle, config.logistics.documentationBody, 'bg-white'],
+    ].map(([eyebrow,title,body,theme]) => <section class={`${theme} py-16 sm:py-20`}><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{eyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{title}</h2></div><p class="max-w-2xl text-lg leading-8 text-fruklas-black">{body}</p></div></section>)}
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20"><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.logistics.ctaEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.logistics.ctaTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8">{config.logistics.ctaBody}</p><a href={formUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.ui.enquiryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+  </>
+)}
+
+{pageKey === 'company' && (
+  <>
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="max-w-4xl"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{config.company.eyebrow}</p><h1 class="mt-4 text-4xl font-bold text-fruklas-ink sm:text-5xl">{config.company.h1}</h1><p class="mt-6 text-xl font-semibold leading-8 text-fruklas-ink">{config.company.lead}</p></div></div></section>
+    {[
+      [config.company.whoEyebrow, config.company.whoTitle, config.company.whoBody, 'bg-fruklas-cream'],
+      [config.company.marketEyebrow, config.company.marketTitle, config.company.marketBody, 'bg-fruklas-soft-green'],
+      [config.company.alicanteEyebrow, config.company.alicanteTitle, config.company.alicanteBody, 'bg-white'],
+    ].map(([eyebrow,title,body,theme]) => <section class={`${theme} py-16 sm:py-20`}><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{eyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{title}</h2></div><p class="max-w-2xl text-lg leading-8 text-fruklas-black">{body}</p></div></section>)}
+
+    <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.company.brandsEyebrow}</p><div class="mt-3 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center"><div><h2 class="text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.company.brandsTitle}</h2><p class="mt-5 text-lg leading-8 text-fruklas-black">{config.company.brandsBody}</p></div><div class="grid gap-6 sm:grid-cols-2"><div class="flex min-h-40 items-center justify-center bg-white p-8"><img src="/brands/vitalis.png" alt="VITALIS" class="max-h-24 max-w-full object-contain" loading="lazy" /></div><div class="flex min-h-40 items-center justify-center bg-white p-8"><img src="/brands/anbel.png" alt="ANBEL GOLD" class="max-h-24 max-w-full object-contain" loading="lazy" /></div></div></div></div></section>
+
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20 lg:py-24"><div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:px-8"><div><img src="/logos/logo_ksi.png" alt="KSI TERRE" class="max-h-28 max-w-[18rem] object-contain" loading="lazy" /></div><div class="max-w-2xl"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.company.ksiEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.company.ksiTitle}</h2><p class="mt-5 text-lg leading-8 text-white">{config.company.ksiBody}</p><p class="mt-4 text-lg leading-8 text-white">{config.company.ksiProduction}</p></div></div></section>
+
+    <section class="bg-white py-16 sm:py-20 lg:py-24"><div class="mx-auto max-w-7xl px-5 lg:px-8"><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-light-green">{config.company.galleriesEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.company.galleriesTitle}</h2><p class="mt-5 max-w-2xl text-lg leading-8 text-fruklas-black">{config.company.galleriesBody}</p><div class="mt-8 grid gap-4 sm:grid-cols-3">{[
+      [config.company.grapesGallery, sharedInternationalResources.galleries.grapes],
+      [config.company.artichokesGallery, sharedInternationalResources.galleries.artichokes],
+      [config.company.produceGallery, sharedInternationalResources.galleries.produce],
+    ].map(([label,url]) => <a href={url} target="_blank" rel="noopener noreferrer" class="flex min-h-24 items-center justify-between bg-fruklas-cream p-5 font-bold text-fruklas-ink hover:text-fruklas-green"><span>{label}</span><span aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a>)}</div></div></section>
+
+    <section class="bg-fruklas-soft-green py-16 sm:py-20"><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-green">{config.company.teamEyebrow}</p><h2 class="mt-3 text-3xl font-bold text-fruklas-ink sm:text-4xl">{config.company.teamTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8 text-fruklas-black">{config.company.teamBody}</p><a href={sharedInternationalResources.galleries.team} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 font-bold uppercase tracking-[0.05em] text-white">{config.company.teamCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+
+    <section class="bg-fruklas-ink py-16 text-white sm:py-20"><div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8"><div><p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">{config.company.ctaEyebrow}</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">{config.company.ctaTitle}</h2></div><div class="max-w-2xl"><p class="text-lg leading-8">{config.company.ctaBody}</p><a href={formUrl} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-fruklas-ink">{config.ui.enquiryCta}<span class="ml-2" aria-hidden="true">↗</span><span class="sr-only">{externalSr}</span></a></div></div></section>
+  </>
+)}
