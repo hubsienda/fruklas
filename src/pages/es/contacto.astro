@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { company } from '../../data/site';
+import { legalResources } from '../../data/legal';
+
+const directContacts = [
+  { role: 'Gerente', href: 'mailto:fruklas@gmail.com' },
+  { role: 'Comercial Mercalicante', href: 'mailto:info@fruklas.es' },
+  { role: 'Comercial Export', href: 'mailto:miriam@fruklas.es' },
+  { role: 'Administración', href: 'mailto:gestion@fruklas.es' },
+  { role: 'Puesto Mercalicante', href: 'mailto:distribucion@fruklas.es' },
+] as const;
+---
+<BaseLayout
+  title="Contacto | FRUKLAS S.L."
+  description="Contacta con FRUKLAS S.L. en Mercalicante, Alicante, para consultas comerciales, exportación, distribución y administración."
+>
+  <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="max-w-4xl">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">FRUKLAS · Contacto</p>
+        <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">Contacto</h1>
+        <h2 class="mt-8 max-w-4xl text-2xl font-bold leading-[1.35] text-fruklas-ink sm:text-3xl">
+          Envía un mensaje a <a href="mailto:info@fruklas.es" class="text-fruklas-green underline decoration-fruklas-orange decoration-2">info@fruklas.es</a> o llama al <a href="tel:+34966300790" class="text-fruklas-green underline decoration-fruklas-orange decoration-2">+34 966300790</a>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-cream py-16 sm:py-20" aria-labelledby="datos-contacto-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Datos de empresa</p>
+        <h2 id="datos-contacto-title" class="mt-3 text-3xl font-bold leading-[1.18] text-fruklas-ink">Fruklas S.L.</h2>
+      </div>
+      <address class="max-w-2xl not-italic text-lg leading-8 text-fruklas-black">
+        <p>Mercalicante, Pto. 134/136/138 · Ctra. Madrid, Km. 4 · 03114 Alicante – España</p>
+        <p class="mt-4"><strong>C.I.F.</strong> {company.cif}</p>
+        <p><strong>Tel/Fax:</strong> <a href={company.phoneHref} class="font-semibold text-fruklas-green underline">{company.phone}</a></p>
+        <p><strong>Móvil:</strong> <a href={company.mobileHref} class="font-semibold text-fruklas-green underline">{company.mobile}</a></p>
+        <a href={company.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex min-h-12 items-center font-bold text-fruklas-orange underline decoration-2">Abrir en Google Maps <span class="ml-2" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+      </address>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="contactos-directos-title">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-light-green">Equipo</p>
+          <h2 id="contactos-directos-title" class="mt-3 text-3xl font-bold leading-[1.18] text-fruklas-ink sm:text-4xl">Contactos directos</h2>
+        </div>
+        <div class="border-t border-black/15">
+          {directContacts.map((contact) => (
+            <div class="flex min-h-16 items-center justify-between gap-5 border-b border-black/15 py-4">
+              <span class="font-semibold text-fruklas-black">{contact.role}</span>
+              <a href={contact.href} class="shrink-0 font-bold text-fruklas-green underline decoration-fruklas-orange decoration-2" aria-label={`Enviar email a ${contact.role}`}>Email</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-soft-green py-16 sm:py-20" aria-labelledby="whatsapp-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Contacto directo</p>
+        <h2 id="whatsapp-title" class="mt-3 text-3xl font-bold leading-[1.18] text-fruklas-green sm:text-4xl">WhatsApp</h2>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href="https://wa.me/34617710647" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center bg-fruklas-green px-6 py-3 text-center font-bold uppercase tracking-[0.04em] text-white transition-opacity hover:opacity-90" aria-label="Abrir WhatsApp para contactar con Gerente">WHATSAPP GERENTE <span class="ml-2" aria-hidden="true">↗</span></a>
+        <a href="https://wa.me/34627064289" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 text-center font-bold uppercase tracking-[0.04em] text-fruklas-ink transition-opacity hover:opacity-90" aria-label="Abrir WhatsApp para contactar con Comercial Export">WHATSAPP COMERCIAL EXPORT <span class="ml-2" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24" aria-labelledby="datos-personales-title">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="max-w-4xl">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Privacidad</p>
+        <h2 id="datos-personales-title" class="mt-3 text-3xl font-bold leading-[1.18] text-fruklas-ink sm:text-4xl">Responsable del tratamiento de datos Personales</h2>
+        <p class="mt-6 text-base leading-7 text-fruklas-black"><strong>FRUKLAS S.L. Mercalicante, Pto. 134/136/138 – Ctra. Madrid, Km. 4 – 03114 ALICANTE – España Tlf/Fax +34 966300790 – <a href="mailto:info@fruklas.es" class="text-fruklas-green underline decoration-2">info@fruklas.es</a></strong></p>
+        <p class="mt-5 text-base leading-7 text-fruklas-black"><strong>En cumplimiento con la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales y Reg. UE 2016/679 GDPR</strong></p>
+        <p class="mt-5 font-bold text-fruklas-ink">Le invitamos a leer lo siguiente</p>
+        <div class="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+          {legalResources.dataUseNoticeUrl ? (
+            <a href={legalResources.dataUseNoticeUrl} class="font-bold text-fruklas-green underline decoration-2">Notificación sobre uso de datos</a>
+          ) : (
+            <span class="font-bold text-fruklas-ink">Notificación sobre uso de datos</span>
+          )}
+          <a href={legalResources.privacyPolicyUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-fruklas-green underline decoration-fruklas-orange decoration-2">Política de Privacidad <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
