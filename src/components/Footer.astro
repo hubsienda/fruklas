@@ -1,5 +1,17 @@
 ---
 import { company, legalLinks, navigation } from '../data/site';
+import { getForeignNavigation, getInternationalConfig, isForeignLang } from '../data/i18n';
+
+interface Props { lang?: string }
+const { lang = 'es' } = Astro.props;
+const foreign = isForeignLang(lang);
+const config = getInternationalConfig(lang);
+const footerNavigation = foreign
+  ? getForeignNavigation(lang)
+  : [{ label: 'HOME', href: 'https://fruklas.com' }, ...navigation];
+const footerNavAria = config?.ui.navAria ?? 'Navegación del pie';
+const socialAria = config?.ui.socialAria ?? 'Redes sociales de FRUKLAS';
+const externalNote = config?.ui.externalNote ?? 'se abre en una nueva pestaña';
 ---
 <footer class="border-t border-white/10 bg-fruklas-footer text-white">
   <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
@@ -13,44 +25,43 @@ import { company, legalLinks, navigation } from '../data/site';
         <a href="tel:+34617710647" class="hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">+34 617 710 647</a>
       </p>
 
-      <nav class="mt-6 flex items-center gap-3" aria-label="Redes sociales de FRUKLAS">
+      <nav class="mt-6 flex items-center gap-3" aria-label={socialAria}>
         <a
           href="https://www.facebook.com/fruklas"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Facebook de FRUKLAS"
+          aria-label="Facebook FRUKLAS"
           class="inline-flex size-11 items-center justify-center border border-white/25 text-white/85 transition-colors hover:border-fruklas-orange hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
         >
           <svg viewBox="0 0 24 24" class="size-5" aria-hidden="true" fill="currentColor"><path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07C2 17.09 5.66 21.25 10.44 22v-7.03H7.9v-2.9h2.54V9.86c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.58v1.87h2.77l-.44 2.9h-2.33V22C18.34 21.25 22 17.09 22 12.07Z" /></svg>
-          <span class="sr-only"> (se abre en una nueva pestaña)</span>
+          <span class="sr-only"> ({externalNote})</span>
         </a>
         <a
           href="https://www.linkedin.com/in/fruklas"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="LinkedIn de FRUKLAS"
+          aria-label="LinkedIn FRUKLAS"
           class="inline-flex size-11 items-center justify-center border border-white/25 text-white/85 transition-colors hover:border-fruklas-orange hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
         >
           <svg viewBox="0 0 24 24" class="size-5" aria-hidden="true" fill="currentColor"><path d="M5.34 7.5A1.84 1.84 0 1 0 5.34 3.82a1.84 1.84 0 0 0 0 3.68ZM3.75 20.25h3.18V9.38H3.75v10.87ZM9.25 9.38h3.05v1.49h.04c.43-.8 1.47-1.65 3.03-1.65 3.24 0 3.84 2.13 3.84 4.91v6.12h-3.18v-5.43c0-1.3-.02-2.96-1.8-2.96-1.81 0-2.09 1.41-2.09 2.87v5.52H9.25V9.38Z" /></svg>
-          <span class="sr-only"> (se abre en una nueva pestaña)</span>
+          <span class="sr-only"> ({externalNote})</span>
         </a>
         <a
           href="https://www.youtube.com/@fruklas"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="YouTube de FRUKLAS"
+          aria-label="YouTube FRUKLAS"
           class="inline-flex size-11 items-center justify-center border border-white/25 text-white/85 transition-colors hover:border-fruklas-orange hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
         >
           <svg viewBox="0 0 24 24" class="size-5" aria-hidden="true" fill="currentColor"><path d="M21.58 7.19a2.84 2.84 0 0 0-2-2C17.82 4.7 12 4.7 12 4.7s-5.82 0-7.58.49a2.84 2.84 0 0 0-2 2A29.6 29.6 0 0 0 1.93 12c0 1.61.17 3.22.49 4.81a2.84 2.84 0 0 0 2 2c1.76.49 7.58.49 7.58.49s5.82 0 7.58-.49a2.84 2.84 0 0 0 2-2c.32-1.59.49-3.2.49-4.81s-.17-3.22-.49-4.81ZM10 15.15v-6.3L15.45 12 10 15.15Z" /></svg>
-          <span class="sr-only"> (se abre en una nueva pestaña)</span>
+          <span class="sr-only"> ({externalNote})</span>
         </a>
       </nav>
     </div>
-    <nav aria-label="Navegación del pie">
+    <nav aria-label={footerNavAria}>
       <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">FRUKLAS</h2>
       <ul class="mt-4 grid gap-2 text-sm">
-        <li><a href="https://fruklas.com" class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">HOME</a></li>
-        {navigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
+        {footerNavigation.map((item) => <li><a href={item.href} class="hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
       </ul>
     </nav>
     <nav aria-label="Legal">
