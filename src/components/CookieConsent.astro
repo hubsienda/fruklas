@@ -1,0 +1,96 @@
+<div
+  data-cookie-consent
+  class="fixed inset-x-0 bottom-0 z-[90] hidden border-t border-white/15 bg-fruklas-footer text-white shadow-[0_-12px_30px_rgba(0,0,0,0.18)]"
+  role="region"
+  aria-label="Preferencias de cookies"
+  aria-hidden="true"
+>
+  <div class="mx-auto grid max-w-7xl gap-5 px-5 py-5 sm:py-6 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-8 lg:px-8">
+    <p class="max-w-4xl text-sm leading-6 text-white sm:text-base sm:leading-7">
+      Usamos cookies y otras técnicas de rastreo para mejorar tu experiencia de navegación en nuestra web, para analizar el tráfico en nuestra web y para comprender de dónde llegan nuestros visitantes. Te invitamos a leer nuestra <a
+        href="https://legal.fruklas.com/privacidad"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-bold text-white underline decoration-fruklas-orange decoration-2 underline-offset-4 hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
+      >Política de Privacidad<span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+    </p>
+
+    <div class="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-end">
+      <button
+        type="button"
+        data-cookie-deny
+        class="min-h-12 border-2 border-white px-5 py-3 text-sm font-bold uppercase tracking-[0.06em] text-white transition-colors hover:border-fruklas-orange hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
+      >
+        DENEGAR
+      </button>
+      <button
+        type="button"
+        data-cookie-accept
+        class="min-h-12 bg-fruklas-orange px-5 py-3 text-sm font-bold uppercase tracking-[0.06em] text-fruklas-ink transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        ACEPTAR
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'fruklas_cookie_consent';
+  const banner = document.querySelector('[data-cookie-consent]');
+  const acceptButton = document.querySelector('[data-cookie-accept]');
+  const denyButton = document.querySelector('[data-cookie-deny]');
+  const preferenceButtons = document.querySelectorAll('[data-cookie-preferences]');
+
+  const getStoredConsent = () => {
+    try {
+      const value = window.localStorage.getItem(STORAGE_KEY);
+      return value === 'accepted' || value === 'denied' ? value : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const showBanner = (focusChoice = false) => {
+    if (!(banner instanceof HTMLElement)) return;
+    banner.classList.remove('hidden');
+    banner.setAttribute('aria-hidden', 'false');
+    if (focusChoice && denyButton instanceof HTMLButtonElement) denyButton.focus();
+  };
+
+  const hideBanner = () => {
+    if (!(banner instanceof HTMLElement)) return;
+    banner.classList.add('hidden');
+    banner.setAttribute('aria-hidden', 'true');
+  };
+
+  const publishConsent = (consent) => {
+    window.dispatchEvent(new CustomEvent('fruklas:cookie-consent-changed', { detail: { consent } }));
+  };
+
+  const setConsent = (consent) => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, consent);
+    } catch {
+      // The current page still respects the visitor's choice even if storage is unavailable.
+    }
+    publishConsent(consent);
+    hideBanner();
+  };
+
+  if (getStoredConsent() === null) showBanner();
+
+  acceptButton?.addEventListener('click', () => setConsent('accepted'));
+  denyButton?.addEventListener('click', () => setConsent('denied'));
+
+  preferenceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // Reopening the banner still works when browser storage is unavailable.
+      }
+      publishConsent(null);
+      showBanner(true);
+    });
+  });
+</script>
