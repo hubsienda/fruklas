@@ -1,41 +1,75 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { photoSourceNotes } from '../../data/site';
-
-const galleries = [
-  { label: 'Uvas', href: photoSourceNotes.grapes, accent: 'border-[#6B2D5C]' },
-  { label: 'Alcachofas', href: photoSourceNotes.artichokes, accent: 'border-[#6F7F45]' },
-  { label: 'Frutas y Hortalizas', href: photoSourceNotes.produce, accent: 'border-fruklas-orange' },
-];
 ---
 <BaseLayout
   title="Productos | FRUKLAS S.L."
-  description="Frutas y hortalizas frescas de FRUKLAS para el mercado profesional."
+  description="Frutas y hortalizas frescas de FRUKLAS para el mercado profesional: uvas, alcachofas, frutas y hortalizas."
 >
-  <section class="bg-fruklas-cream py-20 sm:py-24">
-    <div class="mx-auto max-w-5xl px-5 lg:px-8">
-      <p class="text-sm font-bold uppercase tracking-[0.2em] text-fruklas-orange">FRUKLAS S.L.</p>
-      <h1 class="mt-4 text-4xl font-black leading-[1.15] tracking-[-0.03em] sm:text-5xl">Productos</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-black/60">Uvas, alcachofas, frutas y hortalizas frescas desde Alicante para el mercado profesional.</p>
+  <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="max-w-3xl">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">FRUKLAS · Producto fresco</p>
+        <h1 class="mt-4 text-4xl font-bold leading-[1.15] tracking-[-0.03em] text-fruklas-ink sm:text-5xl">Productos</h1>
+        <p class="mt-6 max-w-2xl text-lg leading-8 text-fruklas-black">FRUKLAS comercializa frutas y hortalizas frescas para el mercado profesional, con especial presencia en uva de mesa y alcachofa, junto con una amplia selección de frutas y hortalizas.</p>
+      </div>
     </div>
   </section>
 
-  <section class="py-16 sm:py-20" aria-labelledby="galerias-title">
-    <div class="mx-auto max-w-5xl px-5 lg:px-8">
-      <h2 id="galerias-title" class="text-3xl font-black leading-[1.15] tracking-[-0.025em] sm:text-4xl">Galerías de producto</h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        {galleries.map((gallery) => (
-          <a
-            href={gallery.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class:list={["group flex min-h-40 flex-col justify-between border-l-4 bg-fruklas-cream p-6 transition-colors hover:bg-white", gallery.accent]}
-            aria-label={`${gallery.label}: abrir galería de fotos en una nueva pestaña`}
-          >
-            <h3 class="text-2xl font-black leading-tight">{gallery.label}</h3>
-            <span class="mt-8 font-bold text-fruklas-green">Abrir galería de fotos <span aria-hidden="true">↗</span></span>
-          </a>
-        ))}
+  <section class="bg-fruklas-cream py-16 sm:py-20 lg:py-24" aria-labelledby="uvas-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16 lg:px-8">
+      <div>
+        <div class="h-1 w-16 bg-fruklas-grape" aria-hidden="true"></div>
+        <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-grape">Producto destacado</p>
+        <h2 id="uvas-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Uvas</h2>
+      </div>
+      <div class="max-w-2xl">
+        <p class="text-lg leading-8 text-fruklas-black">La uva de mesa forma parte de la actividad principal de FRUKLAS, con producto destinado al mercado profesional durante las campañas disponibles.</p>
+        <a href={photoSourceNotes.grapes} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-grape px-6 py-3 font-bold uppercase tracking-[0.05em] text-white transition-colors hover:bg-fruklas-grape-deep" aria-label="Ver galería de Uvas en una nueva pestaña">VER GALERÍA <span class="ml-2" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-soft-green py-16 sm:py-20 lg:py-24" aria-labelledby="alcachofas-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:px-8">
+      <div class="max-w-2xl lg:order-1">
+        <p class="text-lg leading-8 text-fruklas-black">La alcachofa es otro de los productos destacados de FRUKLAS, trabajada para atender las necesidades del mercado profesional.</p>
+        <a href={photoSourceNotes.artichokes} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-artichoke px-6 py-3 font-bold uppercase tracking-[0.05em] text-white transition-colors hover:bg-fruklas-artichoke-deep" aria-label="Ver galería de Alcachofas en una nueva pestaña">VER GALERÍA <span class="ml-2" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+      </div>
+      <div class="lg:order-2 lg:justify-self-end lg:text-right">
+        <div class="ml-auto h-1 w-16 bg-fruklas-artichoke" aria-hidden="true"></div>
+        <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-artichoke">Producto destacado</p>
+        <h2 id="alcachofas-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Alcachofas</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-warm-orange py-16 sm:py-20 lg:py-24" aria-labelledby="frutas-hortalizas-title">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16 lg:px-8">
+      <div>
+        <div class="flex gap-2" aria-hidden="true">
+          <span class="h-1 w-10 bg-fruklas-orange"></span>
+          <span class="h-1 w-10 bg-fruklas-green"></span>
+        </div>
+        <p class="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Oferta de producto</p>
+        <h2 id="frutas-hortalizas-title" class="mt-3 max-w-xl text-3xl font-bold leading-[1.18] tracking-[-0.025em] text-fruklas-ink sm:text-4xl">Frutas y Hortalizas</h2>
+      </div>
+      <div class="max-w-2xl">
+        <p class="text-lg leading-8 text-fruklas-black">FRUKLAS completa su oferta con una selección de frutas y hortalizas destinada a compradores profesionales y canales de distribución.</p>
+        <a href={photoSourceNotes.produce} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-white transition-colors hover:bg-[#E85E1C]" aria-label="Ver galería de Frutas y Hortalizas en una nueva pestaña">VER GALERÍA <span class="ml-2" aria-hidden="true">↗</span><span class="sr-only"> (se abre en una nueva pestaña)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-fruklas-ink py-16 text-white sm:py-20 lg:py-24" aria-labelledby="contacto-comercial-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-fruklas-orange">Contacto comercial</p>
+        <h2 id="contacto-comercial-title" class="mt-3 text-3xl font-bold leading-[1.18] tracking-[-0.025em] sm:text-4xl">¿Busca producto fresco?</h2>
+      </div>
+      <div class="max-w-2xl">
+        <p class="text-lg leading-8 text-white">Contacte con FRUKLAS para consultar producto, disponibilidad y necesidades comerciales.</p>
+        <a href="/es/contacto/" class="mt-8 inline-flex min-h-12 items-center justify-center bg-fruklas-orange px-6 py-3 font-bold uppercase tracking-[0.05em] text-white transition-opacity hover:opacity-90">CONTACTAR</a>
       </div>
     </div>
   </section>
