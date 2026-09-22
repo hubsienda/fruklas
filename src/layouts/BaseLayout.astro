@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import { getAlternatesForPath, ogLocales, type SiteLang } from '../data/i18n';
 
 interface Props {
   title: string;
@@ -13,12 +14,20 @@ interface Props {
 }
 
 const { title, description, lang = 'es', overlayHeader = false, canonical } = Astro.props;
-const canonicalUrl = canonical ?? (import.meta.env.PUBLIC_SITE_URL
-  ? new URL(Astro.url.pathname, import.meta.env.PUBLIC_SITE_URL).href
-  : undefined);
+const supportedLangs: SiteLang[] = ['es', 'en', 'fr', 'it', 'de'];
+const siteLang: SiteLang = supportedLangs.includes(lang as SiteLang) ? (lang as SiteLang) : 'es';
+const canonicalUrl = canonical ?? `https://fruklas.com${Astro.url.pathname}`;
+const alternates = getAlternatesForPath(Astro.url.pathname);
+const skipLabels: Record<SiteLang, string> = {
+  es: 'Saltar al contenido',
+  en: 'Skip to content',
+  fr: 'Aller au contenu',
+  it: 'Vai al contenuto',
+  de: 'Zum Inhalt springen',
+};
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={siteLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -26,20 +35,21 @@ const canonicalUrl = canonical ?? (import.meta.env.PUBLIC_SITE_URL
     <meta name="description" content={description} />
     <meta name="theme-color" content="#007A33" />
     <link rel="icon" type="image/png" href="/logos/favicon.png" />
-    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="canonical" href={canonicalUrl} />
+    {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={ogLocales[siteLang]} />
     <meta property="og:image" content="/webpics/homehero.jpeg" />
-    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta property="og:url" content={canonicalUrl} />
     <title>{title}</title>
   </head>
   <body class="min-h-screen antialiased">
-    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-3 focus:text-fruklas-green" href="#contenido">Saltar al contenido</a>
-    <Header overlay={overlayHeader} />
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-3 focus:text-fruklas-green" href="#contenido">{skipLabels[siteLang]}</a>
+    <Header overlay={overlayHeader} lang={siteLang} />
     <main id="contenido"><slot /></main>
-    <Footer />
+    <Footer lang={siteLang} />
     <CookieConsent />
   </body>
 </html>

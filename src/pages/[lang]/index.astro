@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InternationalHome from '../../components/InternationalHome.astro';
+import { foreignLanguages, internationalConfigs, foreignRoutes, type ForeignLang } from '../../data/i18n';
+
+export function getStaticPaths() {
+  return foreignLanguages.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+interface Props { lang: ForeignLang }
+const { lang } = Astro.props;
+const config = internationalConfigs[lang];
+const canonical = `https://fruklas.com${foreignRoutes[lang].home}`;
+---
+<BaseLayout
+  title={config.home.title}
+  description={config.home.description}
+  lang={lang}
+  overlayHeader={true}
+  canonical={canonical}
+>
+  <InternationalHome config={config} />
+</BaseLayout>
