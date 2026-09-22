@@ -20,9 +20,21 @@ import { company, legalLinks, navigation } from '../data/site';
       </ul>
     </nav>
     <nav aria-label="Legal">
-      <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">Legal</h2>
-      <ul class="mt-4 grid gap-2 text-sm">
-        {legalLinks.map((item) => <li><a href={item.href} class="text-white/80 hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange">{item.label}</a></li>)}
+      <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-white/55">LEGAL</h2>
+      <ul class="mt-4 grid gap-1 text-sm">
+        {legalLinks.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-10 items-center py-1 text-white/80 hover:text-fruklas-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fruklas-orange"
+            >
+              {item.label}
+              <span class="sr-only"> (se abre en una nueva pestaña)</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   </div>

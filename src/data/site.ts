@@ -16,11 +16,12 @@ export const navigation = [
 ] as const;
 
 export const legalLinks = [
-  { label: 'AVISO LEGAL', href: '/es/legal/aviso-legal/' },
-  { label: 'PRIVACIDAD', href: '/es/legal/privacidad/' },
-  { label: 'CANAL ETICO', href: '/es/legal/canal-etico/' },
-  { label: 'IGUALDAD', href: '/es/legal/igualdad/' },
-  { label: 'ACCESSIBILIDAD', href: '/es/legal/accessibilidad/' },
+  { label: 'LEGAL FRUKLAS', href: 'https://legal.fruklas.com' },
+  { label: 'AVISO LEGAL', href: 'https://legal.fruklas.com/aviso-legal' },
+  { label: 'PRIVACIDAD', href: 'https://legal.fruklas.com/privacidad' },
+  { label: 'CANAL ÉTICO', href: 'https://drive.google.com/file/d/1YRXXtwrY9mv2k8e-CHvRk1WtExqnHXpw/view' },
+  { label: 'IGUALDAD', href: 'https://drive.google.com/file/d/1wJT85RCcaToCLrwOoZG_DRkbZMcKRMW_/view' },
+  { label: 'ACCESIBILIDAD', href: 'https://legal.fruklas.com/accesibilidad' },
 ] as const;
 
 export const company = {
